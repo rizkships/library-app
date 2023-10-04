@@ -58,8 +58,7 @@ form.addEventListener("submit", function(event) {
     
 })
 
-/* write a function called display books that 
-dynamically creates and adds cards using JS */ 
+
 
 function displayBooks () {
     libraryContainer.textContent = ""
@@ -89,15 +88,11 @@ function displayBooks () {
         const removeButton = document.createElement("button")
         removeButton.textContent = "Remove"
 
-        
-
         removeButton.addEventListener("click", () => {
             myLibrary.splice(index, 1)
             displayBooks()
         })
 
-
-       
         bookCard.appendChild(titleElement)
         bookCard.appendChild(authorElement)
         bookCard.appendChild(pagesElement)

@@ -11,17 +11,25 @@
     <div class="wrapper">
         <dialog id="book-dialog">
     <form method="get" id="form">
+        <div class="input-container">
         <label for = "title">Title</label>
         <input id="title" name="title" type="text">
+    </div>
 
+    <div class="input-container">
         <label for = "author">Author</label>
         <input id="author" name="author" type="text">
+    </div>
 
+        <div class="input-container">
         <label for = "pages">Pages</label>
         <input id="pages" name="pages" type="text">
+    </div>
 
-        <label for = "status">Read</label>
+        <div class="status-container">
+        <label for = "status">Have you read it?</label>
         <input id="status" name="status" type="checkbox">
+    </div>
 
         <button id = "submit" type="submit">Submit</button>
         
