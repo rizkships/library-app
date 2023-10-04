@@ -1,5 +1,6 @@
 
 const newBook = document.getElementById("new-book")
+const bookDialog = document.getElementById("book-dialog")
 const submit = document.getElementById("submit")
 const form = document.getElementById("form")
 const libraryContainer = document.getElementById("library-container")
@@ -37,16 +38,10 @@ function addBookToLibrary() {
 
 }
 
-/* when you click new book you want to clear the text on the form"*/
 
 newBook.addEventListener("click", () => {
 
-    
-    if (form.style.display === 'none') {
-        form.style.display = 'block';
-    } else {
-        form.style.display = 'none'
-    }
+    bookDialog.showModal();
 
 });
 
@@ -56,7 +51,9 @@ form.addEventListener("submit", function(event) {
    
     event.preventDefault()
     addBookToLibrary()
-    libraryContainer.style.display = 'block';
+    bookDialog.close() 
+
+    form.reset()
    
     
 })
