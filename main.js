@@ -78,11 +78,22 @@ function displayBooks () {
 
         const statusElement = document.createElement("p")
         statusElement.textContent = book.status ? "Read" : "Unread"
+
+        const removeButton = document.createElement("button")
+        removeButton.textContent = "Remove"
+
+        removeButton.addEventListener("click", () => {
+            myLibrary.splice(index, 1)
+            displayBooks()
+        })
+
+
        
         bookCard.appendChild(titleElement)
         bookCard.appendChild(authorElement)
         bookCard.appendChild(pagesElement)
         bookCard.appendChild(statusElement)
+        bookCard.appendChild(removeButton)
 
         libraryContainer.appendChild(bookCard)
         
