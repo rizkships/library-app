@@ -1,13 +1,11 @@
 
-const button = document.getElementById("btn")
+const newBook = document.getElementById("new-book")
 const submit = document.getElementById("submit")
 const form = document.getElementById("form")
-const card = document.getElementById("card")
-const cardTitle = document.getElementById("card-title")
-const cardAuthor = document.getElementById("card-author")
-const cardPages = document.getElementById("card-pages")
-const cardStatus = document.getElementById("card-status")
-const cardRemove = document.getElementById("card-remove")
+const libraryContainer = document.getElementById("library-container")
+
+
+
 
 
 const myLibrary = [];
@@ -30,34 +28,32 @@ function addBookToLibrary() {
     myLibrary.push(newBook)
     displayBooks()
 
-    /*
-    cardTitle.textContent = myLibrary[0].title */
-    
-    /*console.log(myLibrary) */
-    /* you need to append newBook to myLibrary */
-    
+    // reset the form after adding a book
+    document.getElementById("form").reset()
+
 }
 
+/* when you click new book you want to clear the text on the form"*/
 
-button.addEventListener("click", () => {
+newBook.addEventListener("click", () => {
+
+    
     if (form.style.display === 'none') {
         form.style.display = 'block';
     } else {
         form.style.display = 'none'
     }
+
 });
-const libraryContainer = document.getElementById("library-container")
+
+
 
 form.addEventListener("submit", function(event) {
    
     event.preventDefault()
     addBookToLibrary()
-
-    if (libraryContainer.style.display === 'none') {
-        libraryContainer.style.display = 'block';
-    } else {
-        libraryContainer.style.display = 'none'
-    }
+    libraryContainer.style.display = 'block';
+   
     
 })
 
@@ -65,7 +61,6 @@ form.addEventListener("submit", function(event) {
 dynamically creates and adds cards using JS */ 
 
 function displayBooks () {
-    const libraryContainer = document.getElementById("library-container")
     libraryContainer.textContent = ""
 
     myLibrary.forEach((book, index) => {
