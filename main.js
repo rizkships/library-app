@@ -19,6 +19,10 @@ function Book(title, author, pages, status) {
     
 }
 
+Book.prototype.toggleReadStatus = function () {
+    this.status = !this.status 
+}
+
 function addBookToLibrary() {
     let title = document.querySelector("#title").value
     let author = document.querySelector("#author").value
@@ -76,11 +80,19 @@ function displayBooks () {
         const pagesElement = document.createElement("p")
         pagesElement.textContent = book.pages
 
-        const statusElement = document.createElement("p")
-        statusElement.textContent = book.status ? "Read" : "Unread"
+        const toggleButton = document.createElement("button")
+        toggleButton.textContent = book.status ? "Read" : "Unread"
+        toggleButton.addEventListener("click", () => {
+            //Toggle the read status when the button is clicked
+            book.toggleReadStatus();
+            // update the button text to reflect the new status
+            toggleButton.textContent = book.status ? "Read" : "Unread"
+        })
 
         const removeButton = document.createElement("button")
         removeButton.textContent = "Remove"
+
+        
 
         removeButton.addEventListener("click", () => {
             myLibrary.splice(index, 1)
@@ -92,7 +104,7 @@ function displayBooks () {
         bookCard.appendChild(titleElement)
         bookCard.appendChild(authorElement)
         bookCard.appendChild(pagesElement)
-        bookCard.appendChild(statusElement)
+        bookCard.appendChild(toggleButton)
         bookCard.appendChild(removeButton)
 
         libraryContainer.appendChild(bookCard)
